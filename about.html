@@ -1,102 +1,88 @@
 ---
 layout: page
 title: "About"
-description: "Hey, this is BY."
-header-img: "img/post-bg-rwd.jpg"
+description: "热爱技术，热爱生活"
+header-img: "img/about-bg.jpg"
+multilingual: true
 ---
 
 <!-- Language Selector -->
-<!-- <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
     <option value="0" selected> 中文 Chinese </option>
     <option value="1"> 英文 English </option>
-</select> -->
+</select>
 
 <!-- Chinese Version -->
 <div class="zh post-container">
+    <blockquote>
+        热爱技术，热爱生活
+    </blockquote>
 
-    <!--copied from markdown -->
-    <blockquote><p>冰冻三尺 非一日之寒<br>
-    积土成山 非斯须之作</p></blockquote>
+    <p>你好，我是老王，一名热爱技术的开发者。</p>
 
-    <p>Hey，我是<strong>柏荧(BY)</strong>，一只iOS程序猿，现在厦门工作。</p>
+    <p>这个博客主要用来记录我的技术学习心得和生活感悟。</p>
 
-    <p>工作、学习之余，我还是一个健身爱好者，同时也非常喜欢拳击。</p>
+    <h2>关于我</h2>
 
-    <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的 个人博客。我在GitHub主页<a href="https://github.com/qiubaiying">👉GitHub·BY</a> 与 简书主页<a href="https://http://www.jianshu.com/u/e71990ada2fd">👉BY</a>。如果有什么问题，欢迎提出探讨~</p>
-
-    <p></p>
-    
-    <h5>Talks</h5>
+    <p>我是一名全栈开发者，主要技术栈包括：</p>
 
     <ul>
-        <li><a href="https://github.com">GitHub</a></li>
-        <li><a href="http://jekyll.com.cn/">jekyll</a></li>
-        <li><a href="http://huangxuan.me/">Hux</a></li> 
-        <li><a href="https://analytics.google.com/analytics">Google Analytics</a></li>
+        <li>前端：HTML, CSS, JavaScript, React, Vue</li>
+        <li>后端：Node.js, Python, Java</li>
+        <li>数据库：MySQL, MongoDB, Redis</li>
+        <li>其他：Git, Docker, Linux</li>
     </ul>
+
+    <h2>联系方式</h2>
+
+    <p>Email: your-email@example.com</p>
+    <p>GitHub: <a href="https://github.com/laowang-66">laowang-66</a></p>
+
 </div>
 
 <!-- English Version -->
-<!-- <div class="en post-container">
-    <blockquote><p>Yet another iOS Developer. <br>
-    Yet another Life-long Student.</p></blockquote>
+<div class="en post-container">
+    <blockquote>
+        Love technology, love life
+    </blockquote>
 
-    <p>Hi, I am <strong>Baiying Qiu</strong>，you can call me <strong>BY</strong>. I am an iOS software engineer and currently working in Xiamen</p>
+    <p>Hi, I'm Laowang, a developer who loves technology.</p>
 
-    <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="http://github.com/qiubaiying">Github·BY</a>.</p>
-    
-    <p>I am a sports enthusiast, I like fitness, running and boxing.</p>
+    <p>This blog is mainly used to record my technical learning experience and life insights.</p>
 
-    <h5>Talks</h5>
+    <h2>About Me</h2>
+
+    <p>I am a full-stack developer, my main tech stack includes:</p>
 
     <ul>
-    <li><a href="https://github.com">GitHub</a></li>
-    <li><a href="http://jekyll.com.cn/">jekyll</a></li>
-    <li><a href="https://pages.github.com/">GitHub Pages</a></li>
-    <li><a href="https://qiubaiying.github.io">BY</a></li>
+        <li>Frontend: HTML, CSS, JavaScript, React, Vue</li>
+        <li>Backend: Node.js, Python, Java</li>
+        <li>Database: MySQL, MongoDB, Redis</li>
+        <li>Others: Git, Docker, Linux</li>
     </ul>
-</div> -->
+
+    <h2>Contact</h2>
+
+    <p>Email: your-email@example.com</p>
+    <p>GitHub: <a href="https://github.com/laowang-66">laowang-66</a></p>
+
+</div>
 
 <!-- Handle Language Change -->
 <script type="text/javascript">
-    // get nodes
     var $zh = document.querySelector(".zh");
     var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
-
-    // bind hashchange event
-    window.addEventListener('hashchange', _render);
-
-    // handle render
-    function _render(){
-        var _hash = window.location.hash;
-        // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        // zh by default
-        }else{
-            // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }
-    }
-
-    // handle select change
     function onLanChange(index){
         if(index == 0){
-            window.location.hash = "#zh"
+            $zh.style.display = "block";
+            $en.style.display = "none";
         }else{
-            window.location.hash = "#en"
+            $en.style.display = "block";
+            $zh.style.display = "none";
         }
     }
-
-    // init
-    _render();
+    onLanChange(0);
 </script>
-
 
 <!-- Gitalk 评论 start  -->
 {% if site.gitalk.enable %}
